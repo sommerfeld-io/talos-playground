@@ -24,7 +24,7 @@ select o in "$OPTION_START" "$OPTION_SSH" "$OPTION_SSH_TUNNEL" "$OPTION_STOP" "$
             vagrant ssh
             break;;
         "$OPTION_SSH_TUNNEL" )
-            vagrant ssh -- -L 7999:localhost:7999
+            vagrant ssh -- -L 8080:localhost:8080
             break;;
         "$OPTION_STOP" )
             vagrant halt

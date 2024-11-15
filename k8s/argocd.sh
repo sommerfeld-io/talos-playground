@@ -29,7 +29,7 @@ readonly D="\e[0m"
 
 export GIT_REPO="https://github.com/sommerfeld-io/talos-playground.git/k8s/manifests"
 readonly ARGO_PROJECT="default-project"
-readonly ARGO_PORT=7900
+readonly ARGO_PORT=8080
 
 
 echo -e "$Y"
@@ -103,7 +103,7 @@ select opt in "$OPTION_BOOTSTRAP" "$OPTION_RECOVER" "$OPTION_PORT_FORWARD"; do
     "$OPTION_PORT_FORWARD")
       echo "[INFO] === Access ArgoCD ======================================"
       echo -e "[INFO] Default Username = ${Y}admin${D}"
-      password=$(Talos kubectl -- -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)
+      password=$(kubectl -- -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)
       echo -e "[INFO] Default Password = ${Y}${password}${D}"
       echo "[INFO]"
       echo "[INFO] Remember to establish an SSH tunnel before accessing the"
@@ -116,7 +116,7 @@ select opt in "$OPTION_BOOTSTRAP" "$OPTION_RECOVER" "$OPTION_PORT_FORWARD"; do
       echo "[INFO] Executing the port forward command ..."
       echo -e "[INFO] Browse to ${Y}https://localhost:$ARGO_PORT${D}"
       echo
-      Talos kubectl -- port-forward svc/argocd-server -n argocd "$ARGO_PORT:443"
+      kubectl -- port-forward svc/argocd-server -n argocd "$ARGO_PORT:443"
       break
       ;;
     *)
