@@ -12,6 +12,9 @@
 		"docs",
 		"docs/about/**",
 
+		"k8s/manifests/**",
+		"provision",
+
 		"node_modules/**",
 		"public/**",
 		"target/**"
