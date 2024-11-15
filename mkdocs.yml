@@ -48,7 +48,7 @@ extra:
       link: https://github.com/sommerfeld-io/talos-playground
 
 nav:
-  - Home: index.md
+  - Getting Started: index.md
   - About this Project:
       - about/contribute.md
       - about/security.md

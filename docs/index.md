@@ -14,9 +14,18 @@ This project also acts as a playground for [Argo CD](https://argo-cd.readthedocs
 - [Where to file issues][file-issues]
 - [Project Board for Issues and Pull Requests][project-board]
 
-## Argo CD Autopilot
+## Usage
+
+You can control Talos and Argo CD with the scripts from the `k8s` directory (`/vagrant/k8s` inside the Vagrantbox).
+
+- First ensure Talos is up-and-running with `./k8s/talos.sh`
+- Then deploy Argo CD with `./k8s/argocd.sh` (remember that you need aPAT)
 
 When [initializing or recovering an Argo CD installation](https://argocd-autopilot.readthedocs.io/en/stable/Getting-Started/), a personal access with `repo` scope is needed. After Argo CD is up and running autopilot will push the installation manifests to the installation repository.
+
+## Running inside a Vagrantbox
+
+To run this project inside a Vagrantbox, you need to have [Vagrant](https://www.vagrantup.com/) and [VirtualBox](https://www.virtualbox.org/) installed on your machine. The `vagrant.sh` script from the project root directory helps with controlling the Vagrantbox.
 
 ## Contact
 

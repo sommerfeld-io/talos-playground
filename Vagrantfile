@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "provision/bootstrap.sh"
   config.vm.provision "shell", path: "provision/bootstrap-vagrant.sh", privileged: false
 
-  (7000..7080).each do |port|
-    config.vm.network "forwarded_port", guest: port, host: port
-  end
+  # (7000..7080).each do |port|
+  #   config.vm.network "forwarded_port", guest: port, host: port
+  # end
 end
