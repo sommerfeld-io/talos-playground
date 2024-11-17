@@ -73,11 +73,11 @@ newgrp docker
 
 
 echo "[INFO] Install talosctl"
-sudo curl -sL https://talos.dev/install | bash -
+sudo curl -fsSL https://talos.dev/install | bash -
 
 
 echo "[INFO] Install kubectl"
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+curl -fsSL --output "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
 
