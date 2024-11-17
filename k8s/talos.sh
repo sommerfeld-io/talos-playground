@@ -16,7 +16,7 @@ readonly Y="\e[33m"
 readonly D="\e[0m"
 
 
-PS3='Please select the ation: '
+PS3='Please select the action: '
 readonly OPTION_CREATE="create"
 readonly OPTION_DASHBOARD="dashboard"
 readonly OPTION_DESTROY="destroy"
