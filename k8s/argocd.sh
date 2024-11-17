@@ -89,7 +89,7 @@ select opt in "$OPTION_BOOTSTRAP" "$OPTION_RECOVER" "$OPTION_PORT_FORWARD"; do
       echo "[INFO] Create Application"
       argocd-autopilot app create hello-world \
         --app github.com/argoproj-labs/argocd-autopilot/examples/demo-app \
-        -p "$ARGO_PROJECT" \
+        --project "$ARGO_PROJECT" \
         --wait-timeout 2m0s
       break
       ;;
