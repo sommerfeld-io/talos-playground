@@ -76,21 +76,22 @@ echo "[INFO] Install talosctl"
 sudo curl -fsSL https://talos.dev/install | bash -
 
 
-echo "[INFO] Install kubectl"
-curl -fsSL --output "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+version="$(curl -fsSL https://dl.k8s.io/release/stable.txt)"
+echo "[INFO] Install kubectl $version"
+curl -fsSLO "https://dl.k8s.io/release/$version/bin/linux/amd64/kubectl"
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
 
-echo "[INFO] Install k9s"
-readonly K9S_VERSION="0.32.5"
-curl -fsSL -o /tmp/k9s.deb https://github.com/derailed/k9s/releases/download/v$K9S_VERSION/k9s_linux_amd64.deb
+version="0.32.5"
+echo "[INFO] Install k9s $version"
+curl -fsSL -o /tmp/k9s.deb https://github.com/derailed/k9s/releases/download/v$version/k9s_linux_amd64.deb
 sudo apt-get install -y /tmp/k9s.deb
 rm /tmp/k9s.deb
 
 
-echo "[INFO] Install ArgoCD Autopilot"
-VERSION=$(curl --silent "https://api.github.com/repos/argoproj-labs/argocd-autopilot/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/')
-curl -fsSL --output - "https://github.com/argoproj-labs/argocd-autopilot/releases/download/$VERSION/argocd-autopilot-linux-amd64.tar.gz" | tar zx
+version=$(curl --silent "https://api.github.com/repos/argoproj-labs/argocd-autopilot/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/')
+echo "[INFO] Install ArgoCD Autopilot $version"
+curl -fsSL --output - "https://github.com/argoproj-labs/argocd-autopilot/releases/download/$version/argocd-autopilot-linux-amd64.tar.gz" | tar zx
 mv ./argocd-autopilot-* /usr/local/bin/argocd-autopilot
 
 
