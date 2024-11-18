@@ -1,0 +1,11 @@
+{
+  "appName": "hello-world",
+  "userGivenName": "hello-world",
+  "destNamespace": "default",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "k8s/manifests/apps/hello-world/overlays/default-project",
+  "srcRepoURL": "https://github.com/sommerfeld-io/talos-playground.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null
+}
