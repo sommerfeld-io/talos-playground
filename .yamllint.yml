@@ -1,10 +1,12 @@
 ---
 extends: default
 
+# ! /k8s/manifests should be temporary
 ignore: |
   node_modules
   .vagrant
   target
+  /k8s/manifests
 
 rules:
   line-length:
